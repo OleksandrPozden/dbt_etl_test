@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_titanic
+    description: This model cleans up data from titanic 
+    columns:
+      - name: passenger_id
+        description: Unique identfier of a passenger
+        tests:
+          - unique
+          - not_null
+      - name: sex
+        description: Sex of a passenger
+      - name: age
+        description: Age of a passsenger
+      - name: fare
+        description: Price of the ticket
+      - name: embarked_on
+        description: Station where passenger was onboarded
+      - name: passenger_class
+        description: Class of appartments
+      - name: parents_children
+        description: Number of parent or children was aboard
+      - name: siblings_spouses
+        description: Number of Siblings/Spouses aboard
+      - name: survived
+        description: Dead/Alive
