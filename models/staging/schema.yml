@@ -63,3 +63,135 @@ models:
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: boolean
+
+  - name: _base_local__gyb_data
+    description: This model cleans up data of GotYourBackSupport Orders csv file
+    columns:
+      - name: reference_id
+        description: Uniquely identifies orders in gyb_data table
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character varying
+              
+      - name: product_name
+        description: Name of the product
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character varying
+              
+      - name: product_code
+        description: Code of the product
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character varying
+              
+      - name: sub_start_date
+        description: Date when subscription has started
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp without time zone
+              
+      - name: sub_deacivation_date
+        description: Deactivation of subscription
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp without time zone
+              
+      - name: sub_duration_months
+        description: Subscription duration (in months)
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+              
+      - name: source
+        description: Source where subscription was sold
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character varying
+              
+      - name: country_code
+        description: Customer's code of the country
+        tests:
+          - dbt_expectations.expect_column_value_lengths_to_equal:
+              value: 2
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character
+              
+      - name: compaign_name
+        description: compaign_name
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character varying
+              
+      - name: order_date
+        description: order_date
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp without time zone
+              
+      - name: sales_agent_name
+        description: Name of sales manager
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: character varying
+              
+      - name: total_amount
+        description: Total cost of a product
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double precision
+              
+      - name: discount_amount
+        description: Discount for a customer
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double precision
+              
+      - name: original_amount
+        description: Original cost of a product
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double precision
+              
+      - name: returned_amount
+        description: Money that was returned to a customer via refund or chargeback
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double precision
+              
+      - name: return_date
+        description: Datetime when money was returned to a customer
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp without time zone
+              
+      - name: number_of_rebills
+        description: Number of rebills
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+              
+      - name: total_rebill_amount
+        description: Total rebill amount ($)
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double precision
+              
+      - name: last_rebill_date
+        description: Datetime of last rebill
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp without time zone
+              
+      - name: has_refund
+        description: Is order refunded
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: boolean
+              
+      - name: has_chargeback
+        description: Is order chargebacked
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: boolean

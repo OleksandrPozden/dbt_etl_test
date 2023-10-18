@@ -1,0 +1,23 @@
+SELECT 
+    "Reference ID"::varchar as reference_id,
+    "Product Name"::varchar as product_name,
+    "Product Code"::varchar as product_code,
+    "Subscription Start Date"::timestamp as sub_start_date,
+    "Subscription Deactivation Date"::timestamp as sub_deacivation_date,
+    "Subscription Duration Months"::integer as sub_duration_months,
+    "Source"::varchar as source,
+    "country"::char(2) as country_code,
+    "Campaign Name"::varchar as compaign_name,
+    "Order Date Kyiv"::timestamp as order_date,
+    "Sales Agent Name"::varchar as sales_agent_name,
+    "Total Amount ($)"::double precision as total_amount,
+    "Discount Amount ($)"::double precision as discount_amount,
+    "Original Amount ($)"::double precision as original_amount,
+    "Returned Amount ($)"::double precision as returned_amount,
+    "Return Date Kyiv"::timestamp as return_date,
+    "Number Of Rebills"::integer as number_of_rebills,
+    "Total Rebill Amount"::double precision as total_rebill_amount,
+    "Last Rebill Date Kyiv"::timestamp as last_rebill_date,
+    CASE LOWER("Has Refund") WHEN 'yes' THEN TRUE WHEN 'no' THEN FALSE ELSE NULL END::boolean as has_refund,
+    CASE LOWER("Has Chargeback") WHEN 'yes' THEN TRUE WHEN 'no' THEN FALSE ELSE NULL END::boolean as has_chargeback
+FROM gyb_data
