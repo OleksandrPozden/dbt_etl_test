@@ -11,6 +11,9 @@ models:
           - not_null
       - name: sex
         description: Sex of a passenger
+        tests:
+          - accepted_values:
+              values: [0, 1 null]
       - name: age
         description: Age of a passsenger
       - name: fare
