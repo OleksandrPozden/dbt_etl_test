@@ -1,14 +1,14 @@
 SELECT
     passengerId::bigint as passenger_id,
-    CASE sex::integer WHEN 1 THEN 'male' WHEN 0 THEN 'female' ELSE NULL END,
+    CASE sex WHEN 1 THEN 'male' WHEN 0 THEN 'female' ELSE NULL END::VARCHAR as sex,
     age::integer,
     fare::double precision,
-    CASE embarked::integer
+    CASE embarked
         WHEN 0 THEN 'Cherbourg'
         WHEN 1 THEN 'Queenstown'
         WHEN 2 THEN 'Southampton'
-        ELSE Null
-    END as embarked_at,
+        ELSE NULL
+    END::VARCHAR as embarked_at,
     pclass::integer as passenger_class,
     parch::integer  as parents_children,
     sibsp::integer  as siblings_spouses,
