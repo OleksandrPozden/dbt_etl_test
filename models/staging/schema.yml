@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_local_titanic
+  - name: stg_local__titanic
     description: This model cleans up data from Titanic
     columns:
       - name: passenger_id
