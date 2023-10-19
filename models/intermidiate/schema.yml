@@ -1,1 +1,14 @@
 version: 2
+
+models:
+  - name: int_data_current_month
+    columns:
+      - name: order_date
+        tests:
+          - month_boundaries_within_one_month
+
+  - name: int_data_previous_month
+    columns:
+      - name: order_date
+        tests:
+          - month_boundaries_within_one_month
