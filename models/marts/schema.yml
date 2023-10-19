@@ -15,4 +15,5 @@ models:
           - not_null
   - name: income_orders
     description: monthly report on total revenue and number of orders.
-    
+  - name: income_month_incremental
+    description: calculate the percentage increase in income from month to month

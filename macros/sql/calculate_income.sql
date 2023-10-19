@@ -10,5 +10,5 @@
             ELSE 0 
         END
     )
-  ) AS income
+  )
 {%- endmacro -%}
