@@ -65,7 +65,7 @@ models:
               column_type: boolean
 
   - name: _base_local__gyb_data
-    description: This model cleans up data of GotYourBackSupport Orders csv file
+    description: gyb_data model with duplicates in column (reference_id)
     columns:
       - name: reference_id
         description: Uniquely identifies orders in gyb_data table
@@ -195,3 +195,11 @@ models:
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: boolean
+
+  - name: stg_local__gyb_data
+    description: Cleand gyb_data (deduplicated)
+    columns:
+      - name: reference_id
+        tests:
+          - not_null
+          - unique
