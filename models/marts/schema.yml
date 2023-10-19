@@ -13,3 +13,6 @@ models:
       - name: sales_agent_name
         tests:
           - not_null
+  - name: income_orders
+    description: monthly report on total revenue and number of orders.
+    
