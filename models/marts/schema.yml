@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: top_3_popular_products_previous_month
+    description: Top 3 most popular product sold for the previous month
+    columns:
+      - name: product_name
+      - name: order_count
+        description: total count of sold the product
+  - name: most_sold_product_for_every_manager
+    description: Product that was more frequently sold this month by Sales managers.
+    columns:
+      - name: sales_agent_name
+        tests:
+          - not_null
