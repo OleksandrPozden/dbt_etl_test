@@ -17,3 +17,7 @@ models:
     description: monthly report on total revenue and number of orders.
   - name: income_month_incremental
     description: calculate the percentage increase in income from month to month
+  - name: sales_manager_discounts
+    description: for each agent, using window functions, calculate the average amount of discount they give
+  - name: sales_manager_discounts_above_avg
+    description: using CTE, identify agents that provide discounts above the overall average.
